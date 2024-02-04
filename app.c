@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "app.h"
 
+//TODO write getRecordbyValue function(s)
+//TODO change to use file from command line or builtin
+//TODO test for bad inputs
 
 int main() {
 
@@ -9,8 +12,7 @@ int main() {
    int id;
    struct Record tempRecord;
 
-   //initialize1
-
+   //initialize
    if(init()){
       splashScreen();
    }else{

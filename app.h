@@ -4,6 +4,9 @@
 
 #ifndef DAVESSPECIAL_APP_H
 #define DAVESSPECIAL_APP_H
+#include <stdio.h>
+#include <stdlib.h>
+
 struct Record {
    int id;
    char data1[50];
@@ -19,5 +22,6 @@ int menu();
 void addEntry();
 int saveRecord(struct Record saveRecord);
 struct Record getRecordbyID(int id);
+int getLastID();
 
 #endif //DAVESSPECIAL_APP_H

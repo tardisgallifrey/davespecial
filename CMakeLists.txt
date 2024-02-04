@@ -10,4 +10,5 @@ add_executable(davesSpecial app.c
         addentry.c
         init.c
         saverecord.c
-        getRecordbyID.c)
+        getRecordbyID.c
+        getLastID.c)

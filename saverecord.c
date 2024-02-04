@@ -47,6 +47,8 @@ int saveRecord(struct Record saveRecord){
          fprintf(stderr, "\nError opened file\n");
          exit(1);
       }else{
+         saveRecord.id = getLastID() + 1;
+         saveRecord.hash = 0;
          flag = fwrite(&saveRecord, sizeof(struct Record), 1, outfile);
          fclose(infile);
       }
