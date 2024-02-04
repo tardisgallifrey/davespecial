@@ -11,10 +11,13 @@ struct Record {
    long hash;
 };
 
+#define DATAFILE "datafile.bin"
+
 void splashScreen();
 int init();
 int menu();
 void addEntry();
 int saveRecord(struct Record saveRecord);
+struct Record getRecordbyID(int id);
 
 #endif //DAVESSPECIAL_APP_H

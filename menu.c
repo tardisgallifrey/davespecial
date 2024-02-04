@@ -3,18 +3,17 @@
 //
 #include <stdio.h>
 
-
 int menu(){
 
    int charChoice;
 
    printf("\n1. Add Entry");
-   printf("\n2. ");
+   printf("\n2. Get Record by ID");
    printf("\n3. ");
    printf("\n9. Exit program");
    printf("\n\nEnter the number of your choice: ");
 
-   scanf(" %c", &charChoice);
+   scanf(" %d", &charChoice);
 
-   return charChoice - '0';
+   return charChoice;
 }

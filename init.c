@@ -8,9 +8,18 @@
 int init(){
 
    FILE* outfile;
+   FILE* infile;
+
+   infile = fopen(DATAFILE, "rb");
+
+   if(infile != NULL){
+      //file exists, nothing to do so return success
+      fclose(infile);
+      return 1;
+   }
 
    // open file for writing
-   outfile = fopen("person.bin", "wb");
+   outfile = fopen(DATAFILE, "wb");
    if (outfile == NULL) {
       fprintf(stderr, "\nError opened file\n");
       exit(1);

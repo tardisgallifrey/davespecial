@@ -7,14 +7,14 @@
 #include "app.h"
 
 int saveRecord(struct Record saveRecord){
-   FILE* infile;
-   FILE* outfile;
-   struct Record tempRecord;
-   unsigned long flag = 0;
-   int idEmpty;
+   FILE* infile;     //needed to read data file
+   FILE* outfile;    //needed to write to, or append to data file
+   struct Record tempRecord;  //temp record to read in from file
+   unsigned long flag = 0;    //fread/fwrite returns u_long, not int
+   int idEmpty;               //idEmpty variable
 
    // open file for writing
-   infile = fopen("person.bin", "rb");
+   infile = fopen(DATAFILE, "rb");
 
    //open file and read first record
    if (infile == NULL) {
@@ -28,11 +28,13 @@ int saveRecord(struct Record saveRecord){
 
    //file has id == 0, open for write and save first record
    if(flag && idEmpty == 0){
-      outfile = fopen("person.bin", "wb");
+      outfile = fopen(DATAFILE, "wb");
       if(outfile == NULL){
          fprintf(stderr, "\nError opened file\n");
          exit(1);
       }else{
+         saveRecord.id = 1;
+         saveRecord.hash = 0;
          flag = fwrite(&saveRecord, sizeof(struct Record), 1, outfile);
          fclose(infile);
       }
@@ -40,7 +42,7 @@ int saveRecord(struct Record saveRecord){
 
    //file does not have id == 0, open for append
    if(flag && idEmpty){
-      outfile = fopen("person.bin", "ab");
+      outfile = fopen(DATAFILE, "ab");
       if(outfile == NULL){
          fprintf(stderr, "\nError opened file\n");
          exit(1);

@@ -6,8 +6,11 @@
 int main() {
 
    int menuChoice;
+   int id;
+   struct Record tempRecord;
 
-   //initialize
+   //initialize1
+
    if(init()){
       splashScreen();
    }else{
@@ -22,6 +25,14 @@ int main() {
       switch(menuChoice){
          case 1:
             addEntry();
+            break;
+         case 2:
+            printf("\nEnter id of record to find: ");
+            scanf(" %d", &id);
+            tempRecord = getRecordbyID(id);
+            printf("\n   id: %d", tempRecord.id);
+            printf("\n   data1: %s", tempRecord.data1);
+            printf("\n   data2: %s\n", tempRecord.data2);
             break;
          case 9:
             printf("\nProgram ending normally.");
